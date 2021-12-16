@@ -6,7 +6,7 @@ public class Win {
     public static boolean check(int[][] board) {
         boolean rsl = false;
         for (int i = 0; i < board.length; i++) {
-            if (checkHor(board, i) || checkVert(board, i)) {
+            if (board[i][i] == 1 && (checkHor(board, i) || checkVert(board, i))) {
                 rsl = true;
                 break;
             }
@@ -16,8 +16,8 @@ public class Win {
 
     public static boolean checkHor(int[][] board, int i) {
         boolean rsl = true;
-        for (int j = 0; j < board[0].length; j++) {
-            if (board[j][i] != 1) {
+        for (int j = 0; j < board[i].length; j++) {
+            if (board[i][j] != 1) {
                 rsl = false;
                 break;
             }
@@ -27,8 +27,8 @@ public class Win {
 
     public static boolean checkVert(int[][] board, int i) {
             boolean rsl = true;
-            for (int j = 0; j < board[0].length; j++) {
-                if (board[i][j] != 1) {
+            for (int j = 0; j < board.length; j++) {
+                if (board[j][i] != 1) {
                     rsl = false;
                     break;
                 }
