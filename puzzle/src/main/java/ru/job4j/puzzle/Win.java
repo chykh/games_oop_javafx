@@ -32,7 +32,7 @@ public class Win {
                 if (board[j][i] != 1) {
                     rsl = false;
                     break;
-                 }
+                }
             }
             return rsl;
         }
