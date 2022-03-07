@@ -57,5 +57,3 @@ public class Logic {
         throw new FigureNotFoundException();
     }
 }
-
-//   А с кем это ева через кукушку общается??
