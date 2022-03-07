@@ -5,8 +5,6 @@ import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
 import java.util.Arrays;
 
-
-
 public class BishopBlackTest extends TestCase {
 
     public void testPosition() {
