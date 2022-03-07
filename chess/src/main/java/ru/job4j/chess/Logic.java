@@ -4,7 +4,7 @@ import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
 import java.util.Arrays;
 
-public final class Logic {
+public class Logic {
     private final Figure[] figures = new Figure[32];
     private int index = 0;
 
@@ -21,6 +21,14 @@ public final class Logic {
     }
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
+        for (int i = 0; i < steps.length; i++) {
+            Cell cell = steps[i];
+            for (Figure fig: figures) {
+                if (fig != null && fig.position().equals(cell)) {
+                   throw new OccupiedCellException();
+                }
+            }
+        }
         return true;
     }
 
@@ -30,7 +38,17 @@ public final class Logic {
     }
 
     private int findBy(Cell cell) throws FigureNotFoundException {
-        for (int index = 0; index != figures.length; index++) {
+        for (int index = 0; index != figures.length - 1; index++) {
+            Figure figure = figures[index];
+            if (figure != null && figure.position().equals(cell)) {
+                return index;
+            }
+        }
+        throw new FigureNotFoundException();
+    }
+
+    public int checkBy(Cell cell) throws FigureNotFoundException {
+        for (int index = 0; index != figures.length - 1; index++) {
             Figure figure = figures[index];
             if (figure != null && figure.position().equals(cell)) {
                 return index;
@@ -39,3 +57,5 @@ public final class Logic {
         throw new FigureNotFoundException();
     }
 }
+
+//   А с кем это ева через кукушку общается??
